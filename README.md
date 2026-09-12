@@ -1,6 +1,6 @@
-# RREC React Website
+# RREV React Website
 
-A polished static React/Vite website concept for Renewable Rise Energy Company (RREC), based on the supplied 5-page project capability document.
+A polished static React/Vite website concept for Renewable Rise Energy Venture (RREC), based on the supplied 5-page project capability document.
 
 ## Run
 
