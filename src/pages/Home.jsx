@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import HeroSlider from "../components/HeroSlider";
 
 const capabilities = [
   {
@@ -213,131 +214,7 @@ function Home() {
     <div ref={page}>
       {/* ================= HERO ================= */}
 
-      <section className="hero">
-        <div className="hero-bg"></div>
-        <div className="hero-overlay"></div>
-
-        <div className="hero-grid"></div>
-
-        <div className="hero-orb orb-one"></div>
-        <div className="hero-orb orb-two"></div>
-
-        <div className="container hero-inner">
-          <div className="hero-copy reveal">
-            <div className="eyebrow">
-              <i></i>
-              ENGINEERING A CLEANER TOMORROW
-            </div>
-
-            <h1>
-              Turning organic resources into <em>clean energy.</em>
-            </h1>
-
-            <p className="hero-lead">
-              RREV brings together renewable energy expertise, experienced
-              leadership and disciplined project execution to build reliable
-              bioenergy and solar power assets.
-            </p>
-
-            <div className="hero-actions">
-              <Link to="/capabilities" className="btn primary">
-                Explore our capability <span>↗</span>
-              </Link>
-
-              <Link to="/solar-epc" className="btn ghost">
-                Solar EPC <span>→</span>
-              </Link>
-            </div>
-
-            <div className="hero-proof">
-              <div>
-                <strong>12</strong>
-
-                <span>
-                  TPD proposed
-                  <br />
-                  CBG plant
-                </span>
-              </div>
-
-              <div>
-                <strong>29+</strong>
-
-                <span>
-                  years renewable
-                  <br />
-                  energy expertise*
-                </span>
-              </div>
-
-              <div>
-                <strong>30+</strong>
-
-                <span>
-                  years project
-                  <br />
-                  execution expertise*
-                </span>
-              </div>
-            </div>
-
-            <small className="source-note">
-              *Leadership experience stated in the project capability document.
-            </small>
-          </div>
-
-          {/* HERO VISUAL */}
-
-          <div className="hero-visual reveal">
-            <div className="visual-card">
-              <div className="visual-top">
-                <span>CBG VALUE CHAIN</span>
-                <span className="live-dot">●</span>
-              </div>
-
-              <div className="energy-ring">
-                <div className="ring-inner">
-                  <span>12</span>
-                  <small>TPD</small>
-                  <b>CBG PLANT</b>
-                </div>
-              </div>
-
-              <div className="mini-flow">
-                <span>FEEDSTOCK</span>
-                <i>→</i>
-                <span>DIGESTION</span>
-                <i>→</i>
-                <span>UPGRADING</span>
-              </div>
-
-              <div className="visual-foot">
-                <span>
-                  <i></i>
-                  Project implementation
-                </span>
-
-                <span>RREV / 2026</span>
-              </div>
-            </div>
-
-            <div className="float-card">
-              <b>01</b>
-
-              <span>
-                Technical
-                <br />
-                Capability
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="scroll-cue">
-          <span></span>
-          SCROLL TO EXPLORE
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* ================= ABOUT PREVIEW ================= */}
 
