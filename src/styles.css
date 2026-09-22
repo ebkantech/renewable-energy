@@ -3659,3 +3659,34 @@ img { max-width: 100%; }
 }
 .track-solar .process-mini-line { background: var(--sun); }
 .track-solar .process-preview-label { color: var(--sun); }
+
+/* =========================================================
+   CONTACT CTA BAND — centred with CSS Grid (place-items)
+   The "RREV" watermark and the heading share one grid cell,
+   so both sit dead-centre, the watermark behind the heading.
+========================================================= */
+.contact-bottom-inner {
+  display: grid;
+  place-items: center;          /* centre horizontally + vertically */
+  grid-template-columns: 1fr;
+  min-height: clamp(260px, 32vw, 380px);
+  text-align: center;
+  gap: 0;
+}
+.contact-bottom-inner > * {
+  grid-area: 1 / 1;             /* stack children in the same cell */
+}
+.contact-bottom-inner > span {
+  font-size: clamp(110px, 22vw, 300px);
+  line-height: 1;
+  color: rgba(185, 232, 91, 0.12);
+  user-select: none;
+  pointer-events: none;
+}
+.contact-bottom-inner > div {
+  position: relative;
+  z-index: 1;
+}
+.contact-bottom .eyebrow {
+  justify-content: center;
+}
