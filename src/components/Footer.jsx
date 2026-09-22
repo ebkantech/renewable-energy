@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import "./Footer.css";
 
 const services = [
   ["Bio-CNG / CBG Plants", "/capabilities"],
