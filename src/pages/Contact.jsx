@@ -27,7 +27,7 @@ function Contact() {
 
           <p>
             Tell us about your renewable energy, bioenergy, CBG or
-            infrastructure project and start a conversation with RREC.
+            infrastructure project and start a conversation with RREV.
           </p>
         </div>
       </section>
@@ -128,6 +128,8 @@ function Contact() {
                       Select project type
                     </option>
                     <option>CBG / Biogas</option>
+                    <option>Solar EPC</option>
+                    <option>Hybrid Solar + Biogas</option>
                     <option>Renewable Energy</option>
                     <option>Infrastructure</option>
                     <option>Project Execution</option>
@@ -163,7 +165,7 @@ function Contact() {
                 </h3>
 
                 <p>
-                  Thank you for reaching out to Renewable Rise Energy Company.
+                  Thank you for reaching out to Renewable Rise Energy Venture.
                   Our team can review your requirement and connect with you
                   regarding the next steps.
                 </p>
@@ -184,12 +186,12 @@ function Contact() {
       <section className="section contact-bottom">
         <div className="container">
           <div className="contact-bottom-inner">
-            <span>RREC</span>
+            <span>RREV</span>
 
             <div>
               <div className="eyebrow light">
                 <i></i>
-                RENEWABLE RISE ENERGY COMPANY
+                RENEWABLE RISE ENERGY VENTURE
               </div>
 
               <h2>

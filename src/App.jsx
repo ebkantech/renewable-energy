@@ -10,6 +10,8 @@ import Capabilities from "./pages/Capabilities";
 import Execution from "./pages/Execution";
 import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
+import SolarEPC from "./pages/SolarEPC";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/capabilities" element={<Capabilities />} />
             <Route path="/execution" element={<Execution />} />
             <Route path="/leadership" element={<Leadership />} />
+            <Route path="/solar-epc" element={<SolarEPC />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

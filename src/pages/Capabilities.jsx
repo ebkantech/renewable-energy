@@ -30,7 +30,7 @@ const capabilities = [
     number: "05",
     title: "Infrastructure",
     text: "Civil and infrastructure capabilities supporting energy and industrial project delivery.",
-    image: "/assets/img5.jpg",
+    image: "/assets/about-panel.jpg",
   },
   {
     number: "06",

@@ -33,9 +33,9 @@ function Footer() {
           <span className="footer-label">FOCUS</span>
 
           <p>
-            Renewable Energy
-            <br />
             Bioenergy & CBG
+            <br />
+            Solar EPC
             <br />
             Sustainable Infrastructure
           </p>
@@ -69,8 +69,20 @@ function Footer() {
 
             <br />
 
+            <Link to="/solar-epc" onClick={scrollTop}>
+              Solar EPC
+            </Link>
+
+            <br />
+
             <Link to="/execution" onClick={scrollTop}>
               Execution
+            </Link>
+
+            <br />
+
+            <Link to="/projects" onClick={scrollTop}>
+              Projects
             </Link>
 
             <br />

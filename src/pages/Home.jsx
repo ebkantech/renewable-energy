@@ -35,7 +35,7 @@ const capabilities = [
     title: "Compliance & Approvals",
     text: "PESO approvals, regulatory coordination and institutional stakeholder engagement.",
     icon: "✓",
-    image: "/assets/img5.jpg",
+    image: "/assets/img7.jpg",
   },
   {
     n: "06",
@@ -108,301 +108,105 @@ function useReveal() {
 }
 
 
-const processStages = [
-  {
-    no: "01",
-    title: "Concept",
-    image: "/assets/img1.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Project development and feasibility direction — supported by continuous progress review, quality controls and risk mitigation.",
-  },
-  {
-    no: "02",
-    title: "Engineering",
-    image: "/assets/img2.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Technical planning, engineering coordination and design development to create an execution-ready project framework.",
-  },
-  {
-    no: "03",
-    title: "Procurement",
-    image: "/assets/img3.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Strategic procurement and vendor coordination focused on quality, availability, cost control and project timelines.",
-  },
-  {
-    no: "04",
-    title: "Construction",
-    image: "/assets/img4.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Disciplined site execution covering civil works, installation, coordination, safety and construction quality.",
-  },
-  {
-    no: "05",
-    title: "Commissioning",
-    image: "/assets/img5.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "System testing, integration and controlled start-up to ensure the project is ready for reliable operation.",
-  },
-  {
-    no: "06",
-    title: "Operations",
-    image: "/assets/img6.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Long-term operational focus with performance monitoring, reliability, maintenance and continuous improvement.",
-  },
-];
+/* ================= EXECUTION STAGES (Bio-CNG + Solar) ================= */
 
-const SolarProcessStages = [
-  {
-    no: "01",
-    title: "Concept",
-    image: "/assets/solar 2.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Project development and feasibility direction — supported by continuous progress review, quality controls and risk mitigation.",
+const processTracks = {
+  cbg: {
+    label: "Bio-CNG / CBG Plant",
+    stages: [
+      { no: "01", title: "Concept", image: "/assets/img1.jpg", description: "Feedstock assessment, site study and feasibility direction — supported by continuous progress review, quality controls and risk mitigation." },
+      { no: "02", title: "Engineering", image: "/assets/img2.jpg", description: "Process, civil and mechanical engineering for digesters, gas upgrading and compression — an execution-ready project framework." },
+      { no: "03", title: "Procurement", image: "/assets/img3.jpg", description: "Timely procurement of critical equipment and vendor coordination focused on quality, availability, cost control and timelines." },
+      { no: "04", title: "Construction", image: "/assets/img4.jpg", description: "Disciplined site execution covering civil works, installation, contractor coordination, safety and construction quality." },
+      { no: "05", title: "Commissioning", image: "/assets/img7.jpg", description: "Testing, integration, performance checks and PESO-compliant start-up so the plant is ready for reliable operation." },
+      { no: "06", title: "Operations", image: "/assets/img6.jpg", description: "O&M, performance monitoring, FOM by-product management and continuous optimisation for long-term output." },
+    ],
   },
-  {
-    no: "02",
-    title: "Engineering",
-    image: "/assets/solar 5.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Technical planning, engineering coordination and design development to create an execution-ready project framework.",
+  solar: {
+    label: "Solar EPC",
+    stages: [
+      { no: "01", title: "Concept", image: "/assets/solar-2.jpg", description: "Site survey, shadow analysis, load study and energy-yield estimate to size the right rooftop or ground-mounted system." },
+      { no: "02", title: "Engineering", image: "/assets/solar-7.jpg", description: "PV layout, structural design, string and inverter sizing, SLD and protection design for safe, efficient generation." },
+      { no: "03", title: "Procurement", image: "/assets/solar-3.jpg", description: "Sourcing of modules, inverters, mounting structures and BOS from qualified vendors with quality checks at dispatch." },
+      { no: "04", title: "Construction", image: "/assets/solar-1.jpg", description: "Mounting structure erection, module installation, cabling, earthing and lightning protection under strict site safety." },
+      { no: "05", title: "Commissioning", image: "/assets/solar-6.jpg", description: "Pre-commissioning tests, grid synchronisation, net-metering and DISCOM approvals, and handover documentation." },
+      { no: "06", title: "Operations", image: "/assets/solar-5.jpg", description: "Module cleaning, preventive maintenance, remote monitoring and generation reporting to protect long-term yield." },
+    ],
   },
-  {
-    no: "03",
-    title: "Procurement",
-    image: "/assets/solar 3.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Strategic procurement and vendor coordination focused on quality, availability, cost control and project timelines.",
-  },
-  {
-    no: "04",
-    title: "Construction",
-    image: "/assets/solar 4.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Disciplined site execution covering civil works, installation, coordination, safety and construction quality.",
-  },
-  {
-    no: "05",
-    title: "Commissioning",
-    image: "/assets/solar 5.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "System testing, integration and controlled start-up to ensure the project is ready for reliable operation.",
-  },
-  {
-    no: "06",
-    title: "Operations",
-    image: "/assets/solar 7.jpg",
-    label: "PROJECT STAGE",
-    description:
-      "Long-term operational focus with performance monitoring, reliability, maintenance and continuous improvement.",
-  },
-];
-
+};
 
 function ProcessInteractive() {
+  const [track, setTrack] = useState("cbg");
   const [activeStage, setActiveStage] = useState(0);
+  const stages = processTracks[track].stages;
+  const stage = stages[activeStage];
 
-  const stage = processStages[activeStage];
+  const switchTrack = (key) => {
+    setTrack(key);
+    setActiveStage(0);
+  };
 
   return (
-    <div className="process-interactive">
-
-      {/* LEFT STAGE NAVIGATION */}
-      <div className="process-stage-list">
-
-        {processStages.map((item, index) => (
+    <>
+      <div className="process-track-switch" role="tablist" aria-label="Project type">
+        {Object.entries(processTracks).map(([key, t]) => (
           <button
-            key={item.no}
-            className={`process-stage-btn ${
-              activeStage === index ? "active" : ""
-            }`}
-            onClick={() => setActiveStage(index)}
+            key={key}
+            type="button"
+            role="tab"
+            aria-selected={track === key}
+            className={`track-btn ${key} ${track === key ? "active" : ""}`}
+            onClick={() => switchTrack(key)}
           >
-
-            <span className="process-stage-number">
-              {item.no}
-            </span>
-
-            <span className="process-stage-title">
-              {item.title}
-            </span>
-
-            <span className="process-stage-arrow">
-              →
-            </span>
-
+            {t.label}
           </button>
         ))}
-
       </div>
 
-
-      {/* RIGHT CONTENT */}
-      <div className="process-stage-preview">
-
-        <div className="process-image-wrap">
-
-          <img
-            key={stage.image}
-            src={stage.image}
-            alt={stage.title}
-            className="process-stage-image"
-          />
-
-          <div className="process-image-overlay"></div>
-
-
-          {/* LARGE NUMBER */}
-          <div className="process-large-number">
-            {stage.no}
-          </div>
-
-
-          {/* IMAGE CONTENT */}
-          <div className="process-preview-content">
-
-            <div className="process-mini-line"></div>
-
-            <div className="process-preview-label">
-              {stage.label}
-            </div>
-
-            <h3>
-              {stage.title}
-            </h3>
-
-            <p>
-              {stage.description}
-            </p>
-
-          </div>
-
-
-          {/* IMAGE COUNTER */}
-          <div className="process-counter">
-            <span>{stage.no}</span>
-            <i></i>
-            <span>06</span>
-          </div>
-
+      <div className={`process-interactive track-${track}`}>
+        {/* LEFT STAGE NAVIGATION */}
+        <div className="process-stage-list">
+          {stages.map((item, index) => (
+            <button
+              key={item.no}
+              type="button"
+              className={`process-stage-btn ${activeStage === index ? "active" : ""}`}
+              onClick={() => setActiveStage(index)}
+              aria-pressed={activeStage === index}
+            >
+              <span className="process-stage-number">{item.no}</span>
+              <span className="process-stage-title">{item.title}</span>
+              <span className="process-stage-arrow">→</span>
+            </button>
+          ))}
         </div>
 
-      </div>
-
-    </div>
-  );
-}
-
-function SolarProcessInteractive() {
-  const [activeStage, setActiveStage] = useState(0);
-
-  const stage = SolarProcessStages[activeStage];
-
-  return (
-    <div className="process-interactive">
-
-      {/* LEFT STAGE NAVIGATION */}
-      <div className="process-stage-list">
-
-        {processStages.map((item, index) => (
-          <button
-            key={item.no}
-            className={`process-stage-btn ${
-              activeStage === index ? "active" : ""
-            }`}
-            onClick={() => setActiveStage(index)}
-          >
-
-            <span className="process-stage-number">
-              {item.no}
-            </span>
-
-            <span className="process-stage-title">
-              {item.title}
-            </span>
-
-            <span className="process-stage-arrow">
-              →
-            </span>
-
-          </button>
-        ))}
-
-      </div>
-
-
-      {/* RIGHT CONTENT */}
-      <div className="process-stage-preview">
-
-        <div className="process-image-wrap">
-
-          <img
-            key={stage.image}
-            src={stage.image}
-            alt={stage.title}
-            className="process-stage-image"
-          />
-
-          <div className="process-image-overlay"></div>
-
-
-          {/* LARGE NUMBER */}
-          <div className="process-large-number">
-            {stage.no}
-          </div>
-
-
-          {/* IMAGE CONTENT */}
-          <div className="process-preview-content">
-
-            <div className="process-mini-line"></div>
-
-            <div className="process-preview-label">
-              {stage.label}
+        {/* RIGHT CONTENT */}
+        <div className="process-stage-preview">
+          <div className="process-image-wrap">
+            <img key={stage.image} src={stage.image} alt={`${processTracks[track].label} — ${stage.title}`} className="process-stage-image" />
+            <div className="process-image-overlay"></div>
+            <div className="process-large-number">{stage.no}</div>
+            <div className="process-preview-content">
+              <div className="process-mini-line"></div>
+              <div className="process-preview-label">{processTracks[track].label} · Stage</div>
+              <h3>{stage.title}</h3>
+              <p>{stage.description}</p>
             </div>
-
-            <h3>
-              {stage.title}
-            </h3>
-
-            <p>
-              {stage.description}
-            </p>
-
+            <div className="process-counter">
+              <span>{stage.no}</span>
+              <i></i>
+              <span>06</span>
+            </div>
           </div>
-
-
-          {/* IMAGE COUNTER */}
-          <div className="process-counter">
-            <span>{stage.no}</span>
-            <i></i>
-            <span>06</span>
-          </div>
-
         </div>
-
       </div>
-
-    </div>
+    </>
   );
 }
 
 
 function Home() {
-  const [activeStage, setActiveStage] = useState(0);
-
   const page = useReveal();
 
   return (
@@ -432,7 +236,7 @@ function Home() {
             <p className="hero-lead">
               RREV brings together renewable energy expertise, experienced
               leadership and disciplined project execution to build reliable
-              bioenergy assets.
+              bioenergy and solar power assets.
             </p>
 
             <div className="hero-actions">
@@ -440,8 +244,8 @@ function Home() {
                 Explore our capability <span>↗</span>
               </Link>
 
-              <Link to="/about" className="btn ghost">
-                Why RREV <span>→</span>
+              <Link to="/solar-epc" className="btn ghost">
+                Solar EPC <span>→</span>
               </Link>
             </div>
 
@@ -651,6 +455,49 @@ function Home() {
         </div>
       </section>
 
+      {/* ================= SOLAR EPC ================= */}
+
+      <section className="section solar-band">
+        <div className="container solar-band-grid">
+          <div className="solar-band-media reveal">
+            <img src="/assets/solar-1.jpg" alt="RREV team installing solar modules" />
+            <div className="solar-band-badge">
+              <b>EPC</b>
+              <span>Design · Supply<br />Install · Maintain</span>
+            </div>
+          </div>
+
+          <div className="solar-band-copy reveal">
+            <div className="eyebrow sun">
+              <i></i>
+              SOLAR EPC — OUR CORE
+            </div>
+
+            <h2>
+              Solar power, <em>engineered end-to-end.</em>
+            </h2>
+
+            <p>
+              Alongside bioenergy, RREV delivers turnkey solar EPC for
+              industrial, commercial and institutional sites — and pairs solar
+              with biogas plants to cut the captive power cost of digesters,
+              upgrading units and compressors.
+            </p>
+
+            <ul className="solar-points">
+              <li>Rooftop, carport &amp; ground-mounted systems</li>
+              <li>Hybrid solar + biogas captive power</li>
+              <li>Net-metering &amp; DISCOM approvals</li>
+              <li>Remote monitoring &amp; O&amp;M</li>
+            </ul>
+
+            <Link to="/solar-epc" className="btn sun-btn">
+              Explore Solar EPC <span>↗</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ================= ECOSYSTEM ================= */}
 
       <section className="section ecosystem">
@@ -712,9 +559,9 @@ function Home() {
             </div>
 
             <p>
-              RREV’s implementation philosophy emphasizes scheduling,
-              milestones, resource optimization, monitoring, quality assurance
-              and risk mitigation.
+              Whether it is a Bio-CNG plant or a solar installation, RREV
+              follows the same disciplined path — scheduling, milestones,
+              resource optimisation, monitoring, QA/QC and risk mitigation.
             </p>
           </div>
 
@@ -724,9 +571,40 @@ function Home() {
       </section>
 
 
-      <section className="section process-section" id="execution-process">
+
+      {/* ================= GALLERY PREVIEW ================= */}
+
+      <section className="section gallery-preview">
         <div className="container">
-          <SolarProcessInteractive  />
+          <div className="section-head reveal">
+            <div>
+              <div className="eyebrow">
+                <i></i>
+                ON SITE
+              </div>
+              <h2>
+                Projects in <em>pictures.</em>
+              </h2>
+            </div>
+            <p>
+              Digesters, gas-handling systems and solar arrays — a look at the
+              assets RREV engineers, builds and maintains.
+            </p>
+          </div>
+
+          <div className="photo-grid preview reveal">
+            {["/assets/about-panel.jpg", "/assets/solar-6.jpg", "/assets/img7.jpg", "/assets/solar-1.jpg"].map((src) => (
+              <Link to="/projects" className="photo-tile" key={src}>
+                <img src={src} alt="" loading="lazy" />
+              </Link>
+            ))}
+          </div>
+
+          <div className="home-page-link">
+            <Link to="/projects" className="text-link">
+              View the full gallery <span>↗</span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -834,7 +712,7 @@ function Home() {
             Ready to turn a clean-energy idea into a <em>working asset?</em>
           </h2>
 
-          <p>Let’s discuss your renewable energy, bioenergy or CBG project.</p>
+          <p>Let’s discuss your Bio-CNG, solar EPC or renewable energy project.</p>
 
           <Link to="/contact" className="btn light">
             Start a conversation <span>↗</span>

@@ -33,8 +33,16 @@ function Navbar() {
       label: "Capabilities",
     },
     {
+      path: "/solar-epc",
+      label: "Solar EPC",
+    },
+    {
       path: "/execution",
       label: "Execution",
+    },
+    {
+      path: "/projects",
+      label: "Projects",
     },
     {
       path: "/leadership",
@@ -47,7 +55,7 @@ function Navbar() {
       {/* TOP INFORMATION BAR */}
       <div className="topline">
         <span>RENEWABLE RISE ENERGY VENTURE</span>
-        <span>Bioenergy • CBG • Sustainable Infrastructure</span>
+        <span>Bio-CNG Plants • Solar EPC • Sustainable Infrastructure</span>
       </div>
 
       {/* NAVBAR */}
@@ -59,7 +67,7 @@ function Navbar() {
             to="/"
             className="brand"
             onClick={closeMenu}
-            aria-label="RREC home"
+            aria-label="RREV home"
           >
             <span className="brand-mark">
               <span></span>
