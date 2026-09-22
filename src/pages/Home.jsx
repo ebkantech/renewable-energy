@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import HeroSlider from "../components/HeroSlider";
+import ServiceIcons from "../components/ServiceIcons";
 
 const capabilities = [
   {
@@ -215,6 +216,7 @@ function Home() {
       {/* ================= HERO ================= */}
 
       <HeroSlider />
+      <ServiceIcons />
 
       {/* ================= ABOUT PREVIEW ================= */}
 

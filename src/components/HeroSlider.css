@@ -69,7 +69,7 @@
 .hx-inner {
   width: min(1160px, calc(100% - 48px));
   margin: 0 auto;
-  padding-block: 90px 130px;
+  padding-block: 90px 180px;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 56px;
@@ -239,7 +239,7 @@
 .hx-controls {
   position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: 84px;                 /* clears the service-icon strip that overlaps the hero */
   transform: translateX(-50%);
   width: min(1160px, calc(100% - 48px));
   display: flex;
@@ -303,7 +303,7 @@
 
 /* ---------- responsive ---------- */
 @media (max-width: 991px) {
-  .hx-inner { grid-template-columns: 1fr; gap: 40px; padding-block: 70px 140px; }
+  .hx-inner { grid-template-columns: 1fr; gap: 40px; padding-block: 70px 190px; }
   .hx-stack { height: 300px; max-width: 520px; }
   .hx-card { width: 56%; }
 }
@@ -318,6 +318,7 @@
   .hx-card, .hx-stack:hover .hx-card { position: relative; left: auto; top: auto; width: auto; aspect-ratio: 1; transform: none; border-radius: 12px; }
   .hx-card figcaption, .hx-chip { display: none; }
   .hx-controls { flex-direction: column; align-items: stretch; width: calc(100% - 32px); bottom: 22px; }
+  .hx-inner { padding-block: 56px 150px; }
   .hx-indicators em { display: none; }
   .hx-arrows { justify-content: flex-end; }
 }

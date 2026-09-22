@@ -149,3 +149,14 @@
 .site-footer .brand-mark span:nth-child(3) { height: 21px; background: var(--sun, #f5b324); transform: rotate(16deg); }
 .site-footer .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
 @media (max-width: 600px) { .site-footer .container { width: calc(100% - 30px); } }
+
+/* Logo artwork sits on a white card so its dark-green lettering stays readable on navy */
+.site-footer .footer-brand {
+  display: inline-block;
+  justify-self: start;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.site-footer .footer-brand img { display: block; width: 240px; max-width: 100%; height: auto; }

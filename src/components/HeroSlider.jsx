@@ -10,18 +10,6 @@ import "./HeroSlider.css";
 
 const slides = [
   {
-    image: "/assets/hero-solar-field.jpg",
-    tag: "Solar EPC",
-    tone: "solar",
-    title: (
-      <>
-        Solar power, <em>engineered end-to-end.</em>
-      </>
-    ),
-    text: "Rooftop and ground-mounted solar plants — surveyed, designed, procured, built and maintained by one accountable team.",
-    cta: { to: "/solar-epc", label: "Explore Solar EPC" },
-  },
-  {
     image: "/assets/hero-bg.jpg",
     tag: "Bio-CNG / CBG",
     tone: "bio",
@@ -34,7 +22,19 @@ const slides = [
     cta: { to: "/capabilities", label: "Explore Bio-CNG" },
   },
   {
-    image: "/assets/hero-solar-install.jpg",
+    image: "/assets/hero-solar-field.jpg",
+    tag: "Solar EPC",
+    tone: "solar",
+    title: (
+      <>
+        Solar power, <em>engineered end-to-end.</em>
+      </>
+    ),
+    text: "Rooftop and ground-mounted solar plants — surveyed, designed, procured, built and maintained by one accountable team.",
+    cta: { to: "/solar-epc", label: "Explore Solar EPC" },
+  },
+  {
+    image: "/assets/about-panel.jpg",
     tag: "Execution",
     tone: "brand",
     title: (
@@ -48,9 +48,9 @@ const slides = [
 ];
 
 const stack = [
-  { image: "/assets/about-panel.jpg", label: "Bioenergy facility" },
-  { image: "/assets/solar-1.jpg", label: "Module installation" },
-  { image: "/assets/img7.jpg", label: "Gas-holder dome" },
+  { image: "/assets/img2.jpg", label: "Digester tank" },
+  { image: "/assets/img7.jpg", label: "Biogas dome" },
+  { image: "/assets/solar-1.jpg", label: "Solar installation" },
 ];
 
 const stats = [

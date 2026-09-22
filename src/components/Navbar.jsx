@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
+import "./Navbar.css";
 
 function Navbar() {
   const [menu, setMenu] = useState(false);
@@ -69,16 +70,13 @@ function Navbar() {
             onClick={closeMenu}
             aria-label="RREV home"
           >
-            <span className="brand-mark">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-
-            <span className="brand-text">
-              <b>RREV</b>
-              <small>Renewable Rise Energy Venture</small>
-            </span>
+            <img
+              className="brand-logo"
+              src="/assets/brand/rrev-logo.png"
+              alt="RREV — Renewable Rise Energy Venture"
+              width="404"
+              height="150"
+            />
           </Link>
 
           {/* DESKTOP + MOBILE NAVIGATION */}

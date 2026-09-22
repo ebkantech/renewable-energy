@@ -33,13 +33,14 @@ function Footer() {
       {/* MAIN COLUMNS */}
       <div className="container footer-main">
         <div className="footer-about">
-          <Link to="/" className="footer-brand" onClick={scrollTop}>
-            <span className="brand-mark">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-            <b>RREV</b>
+          <Link to="/" className="footer-brand" onClick={scrollTop} aria-label="RREV home">
+            <img
+              src="/assets/brand/rrev-logo-full.png"
+              alt="Renewable Rise Energy Venture — Clean energy. Green tomorrow."
+              width="600"
+              height="260"
+              loading="lazy"
+            />
           </Link>
 
           <p>
