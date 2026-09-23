@@ -1,109 +1,101 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import "./Footer.css";
+
+const services = [
+  ["Bio-CNG / CBG Plants", "/capabilities"],
+  ["Solar EPC", "/solar-epc"],
+  ["Hybrid Solar + Biogas", "/solar-epc"],
+  ["Execution & O&M", "/execution"],
+];
+
+const company = [
+  ["About", "/about"],
+  ["Leadership", "/leadership"],
+  ["Projects", "/projects"],
+  ["Contact", "/contact"],
+];
 
 function Footer() {
   const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer>
-      <div className="container footer-grid">
-
-        {/* BRAND */}
-        <div>
-          <Link to="/" className="footer-brand" onClick={scrollTop}>
-            <span className="brand-mark">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-
-            <b>RREV</b>
-          </Link>
-
-          <p>Renewable Rise Energy Venture</p>
-        </div>
-
-        {/* FOCUS */}
-        <div>
-          <span className="footer-label">FOCUS</span>
-
-          <p>
-            Bioenergy & CBG
-            <br />
-            Solar EPC
-            <br />
-            Sustainable Infrastructure
-          </p>
-        </div>
-
-        {/* PROJECT */}
-        <div>
-          <span className="footer-label">PROJECT</span>
-
-          <p>
-            Proposed 12 TPD
-            <br />
-            Compressed Biogas Plant
-          </p>
-        </div>
-
-        {/* NAVIGATE */}
-        <div>
-          <span className="footer-label">NAVIGATE</span>
-
-          <p>
-            <Link to="/about" onClick={scrollTop}>
-              About
-            </Link>
-
-            <br />
-
-            <Link to="/capabilities" onClick={scrollTop}>
-              Capabilities
-            </Link>
-
-            <br />
-
-            <Link to="/solar-epc" onClick={scrollTop}>
-              Solar EPC
-            </Link>
-
-            <br />
-
-            <Link to="/execution" onClick={scrollTop}>
-              Execution
-            </Link>
-
-            <br />
-
-            <Link to="/projects" onClick={scrollTop}>
-              Projects
-            </Link>
-
-            <br />
-
-            <Link to="/leadership" onClick={scrollTop}>
-              Leadership
-            </Link>
-
-            <br />
-
-            <Link to="/contact" onClick={scrollTop}>
-              Contact
-            </Link>
-          </p>
-        </div>
-
+    <footer className="site-footer">
+      {/* Tri-colour line: biogas green · solar blue · sun amber */}
+      <div className="footer-stripe" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
-      <div className="container copyright">
-        © {new Date().getFullYear()} Renewable Rise Energy Venture.
-        Website concept based on the supplied project capability document.
+      {/* MAIN COLUMNS */}
+      <div className="container footer-main">
+        <div className="footer-about">
+          <Link to="/" className="footer-brand" onClick={scrollTop} aria-label="RREV home">
+            <img
+              src="/assets/brand/rrev-logo-full.png"
+              alt="Renewable Rise Energy Venture — Clean energy. Green tomorrow."
+              width="600"
+              height="260"
+              loading="lazy"
+            />
+          </Link>
+
+          <p>
+            Renewable Rise Energy Venture — turnkey Bio-CNG plant execution
+            and Solar EPC, from concept to long-term operations.
+          </p>
+
+          <div className="footer-chips">
+            <span className="chip bio">Bio-CNG</span>
+            <span className="chip solar">Solar EPC</span>
+          </div>
+
+          <Link to="/contact" className="footer-cta-btn" onClick={scrollTop}>
+            Start a Conversation <span>↗</span>
+          </Link>
+        </div>
+
+        <nav className="footer-col" aria-label="Services">
+          <span className="footer-label">Services</span>
+          <ul>
+            {services.map(([label, to]) => (
+              <li key={label}>
+                <Link to={to} onClick={scrollTop}>{label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav className="footer-col" aria-label="Company">
+          <span className="footer-label">Company</span>
+          <ul>
+            {company.map(([label, to]) => (
+              <li key={label}>
+                <Link to={to} onClick={scrollTop}>{label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="footer-col">
+          <span className="footer-label">Current Project</span>
+          <div className="footer-project">
+            <b>12 TPD</b>
+            <span>Compressed Biogas (CBG) Plant — proposed</span>
+          </div>
+        </div>
+      </div>
+
+      {/* BOTTOM BAR */}
+      <div className="container footer-bottom">
+        <span>© {new Date().getFullYear()} Renewable Rise Energy Venture. All rights reserved.</span>
+
+        <button type="button" className="to-top" onClick={scrollTop}>
+          Back to top <span>↑</span>
+        </button>
       </div>
     </footer>
   );
