@@ -545,11 +545,11 @@ function Home() {
             ))}
           </div>
 
-          <div className="home-page-link">
+          {/* <div className="home-page-link">
             <Link to="/leadership" className="text-link">
               Meet our leadership team <span>↗</span>
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
 

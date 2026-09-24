@@ -45,10 +45,10 @@ function Navbar() {
       path: "/projects",
       label: "Projects",
     },
-    {
-      path: "/leadership",
-      label: "Leadership",
-    },
+    // {
+    //   path: "/leadership",
+    //   label: "Leadership",
+    // },
   ];
 
   return (
